@@ -23,6 +23,7 @@ while er > tol
   %%Compute next iterate using a v-cycle
   unew = vcycle(u,f,h);
   
+  %% Figure documents the progression of each V-cycle
   figure(99)
   plot([0:h:1],[0 unew' 0],'LineWidth',2)
   hold on
@@ -38,15 +39,17 @@ while er > tol
   end
   Error = u - unew;
   
-  %er = sum(abs(h*Error));
-  er = max(abs(Error));
+  %Error calculations
+  %er = sum(abs(h*Error));  %1-norm
+  er = max(abs(Error)); %max-norm
 
   %%Update iteration count
   it = it+1;
   
   %%Update our working variable
   u = unew;
-end     
+end  
+%Plot specifications for Figure(99)
 plot([0:h:1],[0 guess 0],'m','LineWidth',2)
 plot([0:h:1],zeros(size([0:h:1])),'--k','LineWidth',1)
 hold off
