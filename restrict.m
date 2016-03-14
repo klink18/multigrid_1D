@@ -7,6 +7,8 @@ function u2h = restrict(u)
 N = length(u); %Number of interior points on fine grid
 n = (N+1)/2 - 1; %Number of interior points on coarse grid
 u2h = zeros(n,1); %%Initialize coarse grid variable
+%u2h(1) = u(1);
+%u2h(n) = u(N);
 
   for i = 1:n  %Loop through entries of u2h
 
